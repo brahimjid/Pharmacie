@@ -40,7 +40,7 @@ class StocksController extends Controller
 
         $medicaments = DB::select('SELECT medicaments.nom,stock.prixAchat,stock.prixVente,
                                                 stock.date,stock.datePeremption,stock.quantite,stock.id ,
-                                                stock.idMedicament,stock.prixVente 
+                                                stock.idMedicament,stock.prixVente
                                                 from    medicaments,stock
                                                              WHERE
                                                     medicaments.id = stock.idMedicament And stock.idDepot = ?',[$depot]);
@@ -71,7 +71,7 @@ class StocksController extends Controller
                 {
                     //'<inp type="date" id="dateprt"'
                     return "<button class='btn btn-primary ml-2 btn-sm d-inline add_med_to_stock_btn' >
-                               <i class='fas fa-plus'></i> 
+                               <i class='fas fa-plus'></i>
                              </button>";
                 })->addColumn('new_prix','<input type="number" class="form-control" id="new_prix_input" oninput="validity.valid||(value=\'\');">')
                 ->addColumn('qte','<input type="number"  class="form-control" min="1" id="quantite_input" oninput="validity.valid||(value=\'\');">')
@@ -153,7 +153,7 @@ class StocksController extends Controller
     public function StockSortir(){
 
         if (request()->ajax()){
-            $medicaments =DB::select('SELECT medicaments.nom,stock.prixVente
+            $medicaments = DB::raw(' SELECT medicaments.nom,stock.prixVente
                                                 ,stock.quantite,
                                                 stock.idMedicament
                                                 from medicaments,stock
