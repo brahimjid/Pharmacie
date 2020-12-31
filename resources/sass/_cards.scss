@@ -1,0 +1,56 @@
+
+.cards {
+
+position: relative;
+
+   background-color: #73B8CF;
+
+    &__montant {
+        animation: moveInLeft 3.2s ease-out;
+    }
+
+    @keyframes moveInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-60%);
+        }
+        80%{
+            transform: translateX(-1px);
+        }
+
+        100%{
+            transform: translate(0);
+
+        }
+    }
+
+    @keyframes vaniched {
+        0% {
+            opacity: 1;
+
+        }
+        50% {
+            opacity: .5;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+.circled-toggler{
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    &::after{
+        font-weight: 900;
+        content: '\f104';
+        font-family: 'Font Awesome 5 Free';
+        margin-right: 0.1rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
+}

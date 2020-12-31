@@ -1,0 +1,46 @@
+.model{
+    text-align: center !important;
+    border-radius: .5rem !important;
+    &__title{
+        font-size: 1.9rem;
+        font-weight: 700 !important;
+        color: transparent !important;
+        display: inline-block !important;
+        background-image: linear-gradient(to right, #d41f23, #ff5901) !important;
+        -webkit-background-clip: text !important;
+        letter-spacing: .2rem !important;
+        margin: 0 auto !important;
+
+    }
+
+    &__button-cross{
+
+        display: none !important;
+        &:hover,
+        &:active{
+            color: rgba(#e9104e, .6) !important;
+
+        }
+    }
+    &__body{
+        color: #1d1d1d !important;
+        font-weight: bold !important;
+        font-size: 1rem !important;
+        text-transform: uppercase !important;
+    }
+
+    &__button{
+
+
+        background-image: linear-gradient(to right, #e93b0c, #e9104e) !important;
+        transition: all .3s !important;
+
+        &:hover,
+        &:active{
+            background-image: linear-gradient(to right bottom, #309e08, #006842) !important;
+
+        }
+    }
+
+
+}
