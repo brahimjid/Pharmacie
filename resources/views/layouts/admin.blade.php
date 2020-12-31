@@ -8,13 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Pharmacie</title>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/selectize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="css/selectize.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <div class="spinner"></div>
@@ -278,21 +278,21 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/jquery.min.js')}}"></script>
-<script src="{{ asset('js/popper.min.js')}}"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('js/selectize.js')}}"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap4.min.js"></script>
+<script src="js/selectize.js"></script>
 
 
 @yield('page-js-script')
 
 
-<script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('js/jquery.easing.min.js')}}"></script>
-<script src="{{ asset('js/sb-admin-2.min.js')}}"></script>
-<script src="{{ asset('js/bootstrap.js')}}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/custom.js"></script>
 
 
 </body>

@@ -17,13 +17,13 @@
 {{--    <link href="https://fonts.googleapis.com/css?family=nunito" rel="stylesheet">--}}
 
     <!-- styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/selectize.default.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/selectize.default.css" rel="stylesheet">
+    <link href="/css/all.min.css" rel="stylesheet">
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="/css/fontawesome.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
 </head>
 <body>
@@ -32,11 +32,11 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('js/jquery.min.js')}}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('js/sb-admin-2.min.js')}}"></script>
-    <script src="{{ asset('js/selectize.js')}}"></script>
-    <script src="{{ asset('js/custom.js')}}"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="js/selectize.js"></script>
+    <script src="js/custom.js"></script>
     @yield('page-js-script')
 </body>
 </html>
