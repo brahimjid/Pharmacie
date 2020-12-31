@@ -24,7 +24,7 @@ class CreateStockTable extends Migration {
 			$table->float('montantT', 10, 0);
 			$table->integer('idDepot');
 			$table->integer('stockinitial');
-			$table->float('prixVente', 10, 0);
+			$table->float('prixvente', 10, 0);
 		});
 	}
 
