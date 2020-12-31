@@ -153,7 +153,7 @@ class StocksController extends Controller
     public function StockSortir(){
 
         if (request()->ajax()){
-            $medicaments = DB::raw(' SELECT medicaments.nom,stock.prixVente
+            $medicaments = DB::select(' SELECT medicaments.nom,stock.prixVente
                                                 ,stock.quantite,
                                                 stock.idMedicament
                                                 from medicaments,stock
