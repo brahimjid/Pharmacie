@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'laravel') }}</title>
 
     <!-- scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/app.js" defer></script>
 
     <!-- fonts -->
 {{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
@@ -32,11 +32,11 @@
         @yield('content')
     </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/sb-admin-2.min.js"></script>
-    <script src="js/selectize.js"></script>
-    <script src="js/custom.js"></script>
-    @yield('page-js-script')
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
+    <script src="/js/selectize.js"></script>
+    <script src="/js/custom.js"></script>
+    @yield('page-/js-script')
 </body>
 </html>

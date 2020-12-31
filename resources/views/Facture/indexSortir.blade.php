@@ -46,7 +46,7 @@
 @endsection
 
 @section('page-js-script')
-    <script src="{{ asset('js/facture.js') }}"></script>
+    <script src="/js/facture.js"></script>
     <script>
         $(document).ready(function () {
 

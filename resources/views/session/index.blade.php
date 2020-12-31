@@ -60,8 +60,8 @@
     </div>
 @endsection
 @section('page-js-script')
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/recu.js') }}"></script>
+    <script src="custom.js"></script>
+    <script src="js/recu.js"></script>
     <script>
 
         let sessionTable  =$('.sessionTable ');

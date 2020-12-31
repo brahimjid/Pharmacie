@@ -8,13 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Pharmacie</title>
     <!-- Styles -->
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/fontawesome.css" rel="stylesheet">
-    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="css/selectize.css" rel="stylesheet">
-    <link href="css/all.min.css" rel="stylesheet">
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/fontawesome.css" rel="stylesheet">
+    <link href="/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/css/selectize.css" rel="stylesheet">
+    <link href="/css/all.min.css" rel="stylesheet">
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <div class="spinner"></div>
@@ -278,21 +278,21 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/dataTables.bootstrap4.min.js"></script>
-<script src="js/selectize.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+<script src="/js/selectize.js"></script>
 
 
 @yield('page-js-script')
 
 
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/sb-admin-2.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/custom.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/sb-admin-2.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/custom.js"></script>
 
 
 </body>

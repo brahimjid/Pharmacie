@@ -61,8 +61,8 @@
     </div>
 @endsection
 @section('page-js-script')
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="{{ asset('js/recu.js') }}"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/recu.js"></script>
     <script>
 
         let recuTable =$('.recuTable');

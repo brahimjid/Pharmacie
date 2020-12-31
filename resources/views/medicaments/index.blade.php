@@ -50,7 +50,7 @@
     </div>
   @endsection
     @section('page-js-script')
-          <script src="{{ asset('js/custom.js') }}"></script>
+          <script src="/js/custom.js"></script>
         <script>
              let tableMeds =$('.medicamentstablek');
             $(document).ready(function () {

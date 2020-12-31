@@ -94,8 +94,8 @@
 
 @endsection
 @section('page-js-script')
-    <script src="{{ asset('js/popper.min.js')}}"></script>
-    <script src="{{ asset('js/stock.js') }}"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/stock.js"></script>
 
     <script>
         $(document).off().on('submit','#add-stock-form',function(e){
