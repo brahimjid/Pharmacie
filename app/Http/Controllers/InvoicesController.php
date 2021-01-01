@@ -99,7 +99,7 @@ class InvoicesController extends Controller
             $numFacture = $request->input('numerofacture');
             $invoice->date = $dateF;
             $invoice->montant = $montantT;
-            $invoice->idtypeFacture = 2;
+            $invoice->idtypefacture = 2;
             $invoice->idservice = 3;
             $invoice->idfournisseur = $fournisseur;
             $invoice->idpersonnel = auth()->user()->id;
