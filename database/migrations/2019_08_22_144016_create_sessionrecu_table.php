@@ -15,13 +15,13 @@ class CreateSessionrecuTable extends Migration {
 		Schema::create('sessionrecu', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->dateTime('dateOuverture');
+			$table->dateTime('dateouverture');
 			$table->string('etat', 20)->nullable()->default('Ouverte');
-			$table->integer('idCaissier');
-			$table->dateTime('dateFermeture')->nullable();
+			$table->integer('idcaissier');
+			$table->dateTime('datefermeture')->nullable();
 			$table->float('valeursi', 10, 0);
 			$table->integer('verser');
-			$table->integer('idPersonnel')->nullable();
+			$table->integer('idpersonnel')->nullable();
 		});
 	}
 

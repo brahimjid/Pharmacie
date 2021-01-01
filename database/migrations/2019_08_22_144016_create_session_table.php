@@ -15,10 +15,10 @@ class CreateSessionTable extends Migration {
 		Schema::create('session', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->dateTime('dateOuverture');
+			$table->dateTime('dateouverture');
 			$table->string('etat', 20)->nullable()->default('Ouverte');
-			$table->integer('idCaissier');
-			$table->dateTime('dateFermeture')->nullable();
+			$table->integer('idcaissier');
+			$table->dateTime('datefermeture')->nullable();
 			$table->decimal('valeursi')->default(0);
 			$table->integer('verser')->default(0);
 			$table->integer('idPersonnel')->nullable();

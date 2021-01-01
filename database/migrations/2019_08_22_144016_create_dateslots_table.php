@@ -18,7 +18,7 @@ class CreateDateslotsTable extends Migration {
 			$table->date('dateperemption')->nullable();
 			$table->string('numlot', 100)->nullable();
 			$table->integer('quantite');
-			$table->integer('idElements');
+			$table->integer('idelements');
 		});
 	}
 

@@ -25,7 +25,7 @@ class CreatePersonnelTable extends Migration {
 			$table->string('lieuNaissance', 50)->nullable();
 			$table->date('dateNaissance')->nullable();
 			$table->string('adresse', 1000)->nullable();
-			$table->integer('idGoupe');
+			$table->integer('idgoupe');
 			$table->integer('etat')->default(1);
 			$table->integer('idDepot');
 		});

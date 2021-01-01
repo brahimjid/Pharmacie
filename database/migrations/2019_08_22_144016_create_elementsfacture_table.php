@@ -18,7 +18,7 @@ class CreateElementsfactureTable extends Migration {
 			$table->float('prix', 10, 0);
 			$table->float('remise', 10, 0);
 			$table->integer('idmedicament');
-			$table->integer('idFactrue')->nullable();
+			$table->integer('idfactrue')->nullable();
 			$table->integer('quantite');
 			$table->float('prixtotal', 10, 0);
 			$table->date('dateperemption')->nullable();
