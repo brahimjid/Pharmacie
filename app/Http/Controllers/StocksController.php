@@ -129,8 +129,8 @@ class StocksController extends Controller
     public function update(Request $request, $id)
     {
           $stock = Stock::find($id);
-          $stock->prixAchat = $request->input('prixAchat');
-          $stock->prixVente = $request->input('prixVente');
+          $stock->prixachat = $request->input('prixAchat');
+          $stock->prixvente = $request->input('prixVente');
           $stock->save();
         return redirect('/stocks')->with('success','record updated');
 
@@ -178,7 +178,7 @@ class StocksController extends Controller
     {
         if (request()->ajax()){
 
-            $invoices = Invoice::where('idTypeFacture','1');
+            $invoices = Invoice::where('idtypeFacture','1');
             return DataTables::of($invoices)->addColumn('print', function ($invoices) {
                 $button = '<a href="/invoices/sortir/' . $invoices->id . '" class="btn btn-sm btn-success" target="_blank">
                           <i class="fa fa-print"></i>
