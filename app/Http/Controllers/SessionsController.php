@@ -37,12 +37,13 @@ class SessionsController extends Controller
                                                 AND session.idCaissier = users.id and recu.annulation=0
                                                 and dateOuverture >=$from_date
                                                 AND  dateOuverture <=$to_date
-                                                GROUP BY recu.idSession ");
+                                                GROUP BY recu.idSession, ");
                 //$sessions =  Sessions::whereBetween('dateOuverture', [$from_date, $to_date])->get();
             }
 
             else{
                 $sessions =  DB::select(" SELECT concat(users.nom ,' ',users.prenom) as fullName ,
+                                                           recu.idSession
                                                 users.nom,users.prenom,session.id ,
                                                 SUM(recu.montant) as montant ,session.dateOuverture,session.dateFermeture
                                                 FROM session,recu,users
