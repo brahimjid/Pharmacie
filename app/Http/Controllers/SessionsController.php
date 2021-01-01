@@ -32,9 +32,9 @@ class SessionsController extends Controller
             if (!empty($from_date) && !empty($to_date)){
                 $sessions =   DB::select(" SELECT concat(users.nom ,' ',users.prenom) as fullName ,session.id ,
                                                 SUM(recu.montant) as montant ,session.dateOuverture,session.dateFermeture
-                                                FROM session,recu,users 
-                                                WHERE session.id = recu.idSession 
-                                                AND session.idCaissier = users.id and recu.annulation=0   
+                                                FROM session,recu,users
+                                                WHERE session.id = recu.idSession
+                                                AND session.idCaissier = users.id and recu.annulation=0
                                                 and dateOuverture >=$from_date
                                                 AND  dateOuverture <=$to_date
                                                 GROUP BY recu.idSession ");
@@ -42,12 +42,12 @@ class SessionsController extends Controller
             }
 
             else{
-                $sessions =  DB::select(' SELECT concat(users.nom ," ",users.prenom) as fullName ,session.id ,
+                $sessions =  DB::select(" SELECT concat(users.nom ,' ',users.prenom) as fullName ,session.id ,
                                                 SUM(recu.montant) as montant ,session.dateOuverture,session.dateFermeture
-                                                FROM session,recu,users 
-                                                WHERE session.id = recu.idSession 
-                                                AND session.idCaissier = users.id and recu.annulation=0  
-                                                GROUP BY recu.idSession');
+                                                FROM session,recu,users
+                                                WHERE session.id = recu.idSession
+                                                AND session.idCaissier = users.id and recu.annulation=0
+                                                GROUP BY recu.idSession");
             }
             return DataTables::of($sessions)->addColumn('action', function($sessions){
                 $button = '<a href="/session/'.$sessions->id.'/edit" class="btn btn-sm btn-success">
@@ -135,7 +135,7 @@ class SessionsController extends Controller
         $session_id = DB::table('session')->latest('id')->value('id');
         $session = Sessions::find($session_id);
         $session->etat  ='Fermée' ;
-        $session->dateFermeture  =date('Y-m-d H:i:s');
+        $session->datefermeture  =date('Y-m-d H:i:s');
         $session->save();
         return redirect()->route('recu.index');
 
