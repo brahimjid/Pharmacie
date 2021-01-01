@@ -19,7 +19,7 @@ class CreateCommandeTable extends Migration {
 			$table->float('montant', 10, 0);
 			$table->integer('idfournisseur')->nullable();
 			$table->integer('typecommande');
-			$table->integer('idDepot')->nullable();
+			$table->integer('iddepot')->nullable();
 		});
 	}
 

@@ -97,7 +97,7 @@ class CommandesController extends Controller
         $commandes->montant         = $request->montant;
         $commandes->idfournisseur   = $request->fournisseurs;
         $commandes->typecommande            = 1;
-        $commandes->iddepot         =  auth()->user()->idDepot;
+        $commandes->iddepot         =  auth()->user()->iddepot;
         $commandes->save();
         if ($commandes){
             $values = $request->all();
