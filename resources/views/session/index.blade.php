@@ -83,8 +83,8 @@
                     columns: [
                         {data: 'id', name: 'id'},
                         {data: 'montant', name: 'montant)'},
-                        {data: 'dateOuverture', name: 'dateOuverture'},
-                        {data: 'dateFermeture', name: 'dateFermeture'},
+                        {data: 'dateouverture', name: 'dateOuverture'},
+                        {data: 'datefermeture', name: 'dateFermeture'},
                         {data: 'fullName', name: 'fullName'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ],
