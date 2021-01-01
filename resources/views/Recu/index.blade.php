@@ -85,7 +85,7 @@
                         {data: 'id', name: 'id'},
                         {data: 'montant', name: 'montant'},
                         {data: 'date', name: 'date'},
-                        {data: 'idSession', name: 'idSession'},
+                        {data: 'idsession', name: 'idsession'},
                         {data: 'annulation', name: 'annulation'},
                         {data: 'elements', name: 'elements'},
                         {data: 'annuler', name: 'annuler', orderable: false, searchable: false}

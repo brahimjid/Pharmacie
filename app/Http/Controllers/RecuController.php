@@ -97,6 +97,7 @@ class RecuController extends Controller
                 (['add'=>'add','qt'=>'qte'])
                 ->make(true);
         }
+
         $session_id = DB::table('session')->latest('id')->where('etat','ouvert')->value('id');
      // dd($session_id);
       $session_montant = DB::table('recu')

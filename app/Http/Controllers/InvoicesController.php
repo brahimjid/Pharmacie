@@ -71,7 +71,7 @@ class InvoicesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -129,7 +129,7 @@ class InvoicesController extends Controller
 
                     );
                     $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixachat');
-                    if (Stock::where('idmedicament', '=', $med_id[$i])->exists()) {
+                    if (Stock::where('idmedicament', $med_id[$i])->exists()) {
 
                         $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
                         DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ?', [$stock_id]);
@@ -139,7 +139,7 @@ class InvoicesController extends Controller
                             $getMed->prixachat = $prix[$i];
                             $getMed->prixvente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100);
                             $getMed->save();
-                            DB::update(" update stock set prixachat = $prix[$i], prixvente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idmedicament = $getMed->id ", [$stock_id]);
+                            DB::update("update stock set prixachat = $prix[$i], prixvente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idmedicament = $getMed->id ", [$stock_id]);
                             //  DB::update(" update stock set prixVente = (($prix[$i] * $prix[$i] /100)) where id = ?  AND idmedicament = $getMed->id ", [$stock_id]);
 
                         }
@@ -153,7 +153,6 @@ class InvoicesController extends Controller
                             'iddepot' => 2,
                             'prixvente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
                             'montantt' => ($prix[$i] * $qte[$i])
-
 
                         );
                         Stock::insert($stock_data);
@@ -171,7 +170,8 @@ class InvoicesController extends Controller
 
             }
 
-        } // ******    SORTIR         ***************
+        }
+        // ******    SORTIR         ***************
 
         else {
             $this->validate($request, [
@@ -233,6 +233,7 @@ class InvoicesController extends Controller
 
 
                         );
+
                         $check_insertion =  Stock::insert($stock_data);
                         if ($check_insertion){
                             InvoiceItem::insert($data);

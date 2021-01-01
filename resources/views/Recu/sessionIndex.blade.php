@@ -83,8 +83,8 @@
                     columns: [
                         {data: 'id', name: 'id'},
                         {data: 'SUM(recu.montant)', name: 'SUM(recu.montant)'},
-                        {data: 'dateOuverture', name: 'dateOuverture'},
-                        {data: 'dateFermeture', name: 'dateFermeture'},
+                        {data: 'dateouverture', name: 'dateouverture'},
+                        {data: 'datefermeture', name: 'datefermeture'},
                         {data: 'fullName', name: 'fullName'},
                         {data: 'action', name: 'action', orderable: false, searchable: false}
                     ],

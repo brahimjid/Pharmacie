@@ -133,6 +133,7 @@ class SessionsController extends Controller
         $session->delete();
         return redirect('/session')->with('success','session supprimeé');
     }
+
     public function closeSession(){
 
         $session_id = DB::table('session')->latest('id')->value('id');

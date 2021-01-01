@@ -81,8 +81,8 @@ class MedicamentsController extends Controller
         ]);
       $medicaments = new Medicament();
         $medicaments->nom = $request->input('nom');
-        $medicaments->prixAchat = $request->input('prixAchat');
-        $medicaments->prixVente = $request->input('prixVente');
+        $medicaments->prixachat = $request->input('prixAchat');
+        $medicaments->prixvente = $request->input('prixVente');
         $medicaments->idfamille = $request->input('familles');
         $medicaments->etat = $request->input('etat');
         $medicaments->pourcentage = $request->input('pourcentage');
@@ -142,8 +142,8 @@ class MedicamentsController extends Controller
         ]);
         $medicaments = Medicament::find($id);
         $medicaments->nom=$request->input('nom');
-        $medicaments->prixAchat=$request->input('prixAchat');
-        $medicaments->prixVente= $request->input('prixVente');
+        $medicaments->prixachat=$request->input('prixAchat');
+        $medicaments->prixvente= $request->input('prixVente');
         $medicaments->idfamille= $request->input('familles');
         $medicaments->etat= $request->input('etat');
         $medicaments->pourcentage = $request->input('pourcentage');

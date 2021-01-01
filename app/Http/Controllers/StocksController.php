@@ -174,6 +174,7 @@ class StocksController extends Controller
 
     }
 //
+
     public function indexSortir()
     {
         if (request()->ajax()){
