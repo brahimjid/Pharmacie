@@ -21,11 +21,11 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin1234'),
-            'idFonction' => 1,
+            'idfonction' => 1,
             'tel1' => '32008600',
-            'idGroupe' => 0,
+            'idgroupe' => 0,
             'etat' => 1,
-            'idDepot' => 1233,
+            'iddepot' => 1233,
         ]);
 
         User::create([
@@ -34,11 +34,11 @@ class UserSeeder extends Seeder
             'username' => 'vendeur',
             'email' => 'vendeur@gmail.com',
             'password' => Hash::make('vendeur1234'),
-            'idFonction' => 3,
+            'idfonction' => 3,
             'tel1' => '32008600',
-            'idGroupe' => 0,
+            'idgroupe' => 0,
             'etat' => 1,
-            'idDepot' => 1233,
+            'iddepot' => 1233,
         ]);     User::create([
 
             'nom' => 'gerent',
@@ -46,11 +46,11 @@ class UserSeeder extends Seeder
             'username' => 'gerent',
             'email' => 'gerent@gmail.com',
             'password' => Hash::make('gerent1234'),
-            'idFonction' => 2,
+            'idfonction' => 2,
             'tel1' => '32008600',
-            'idGroupe' => 0,
+            'idgroupe' => 0,
             'etat' => 1,
-            'idDepot' => 1233,
+            'iddepot' => 1233,
         ]);
     }
 }
