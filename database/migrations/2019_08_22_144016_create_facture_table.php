@@ -17,18 +17,18 @@ class CreateFactureTable extends Migration {
 			$table->integer('id', true);
 			$table->dateTime('date');
 			$table->float('montant', 10, 0);
-			$table->integer('idTypeFacture')->nullable();
-			$table->integer('idService')->nullable();
-			$table->integer('idPatient')->nullable();
-			$table->integer('idFournisseur')->nullable();
-			$table->integer('idPersonnel');
-			$table->date('dateEcheancce')->nullable();
-			$table->boolean('etatPaiement')->nullable();
-			$table->string('numeroFactureAchat', 50)->nullable();
-			$table->date('datePaiement')->nullable();
-			$table->string('numRecu', 50)->nullable();
-			$table->string('lieuStock', 100)->nullable();
-			$table->string('numFacture', 50);
+			$table->integer('idtypefacture')->nullable();
+			$table->integer('idservice')->nullable();
+			$table->integer('idpatient')->nullable();
+			$table->integer('idfournisseur')->nullable();
+			$table->integer('idpersonnel');
+			$table->date('dateecheancce')->nullable();
+			$table->boolean('etatpaiement')->nullable();
+			$table->string('numerofactureAchat', 50)->nullable();
+			$table->date('datepaiement')->nullable();
+			$table->string('numrecu', 50)->nullable();
+			$table->string('lieustock', 100)->nullable();
+			$table->string('numfacture', 50);
 		});
 	}
 

@@ -30,7 +30,7 @@ class CreateRecuTable extends Migration {
 			$table->integer('idcaissierrecu')->nullable();
 			$table->dateTime('datepaiement')->nullable();
 			$table->integer('idsessionRecu')->nullable();
-			$table->integer('idDepot')->nullable();
+			$table->integer('iddepot')->nullable();
 		});
 	}
 

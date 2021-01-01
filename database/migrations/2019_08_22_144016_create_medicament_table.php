@@ -16,8 +16,8 @@ class CreateMedicamentTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('nom', 1000);
-			$table->float('prixAchat', 10, 0);
-			$table->float('prixVente', 10, 0);
+			$table->float('prixachat', 10, 0);
+			$table->float('prixvente', 10, 0);
 			$table->integer('idfamille')->nullable();
 			$table->integer('etat')->default(1);
 			$table->integer('pourcentage');

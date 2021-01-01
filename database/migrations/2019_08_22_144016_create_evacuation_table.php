@@ -20,10 +20,10 @@ class CreateEvacuationTable extends Migration {
 			$table->integer('etat')->default(1);
 			$table->string('prenom', 50);
 			$table->float('montant', 10, 0);
-			$table->integer('idCaissier');
-			$table->integer('idChauffeur');
-			$table->integer('idInfermier');
-			$table->integer('idSession');
+			$table->integer('idcaissier');
+			$table->integer('idchauffeur');
+			$table->integer('idinfermier');
+			$table->integer('idsession');
 			$table->integer('nature');
 			$table->string('matricule', 50)->nullable();
 		});
