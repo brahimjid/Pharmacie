@@ -15,14 +15,14 @@ class CreateStockTable extends Migration {
 		Schema::create('stock', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('idMedicament');
+			$table->integer('idmedicament');
 			$table->string('numlot', 100)->nullable();
 			$table->date('date');
 			$table->float('quantite', 10, 0);
-			$table->date('datePeremption')->nullable();
+			$table->date('dateperemption')->nullable();
 			$table->float('prixAchat', 10, 0);
 			$table->float('montantT', 10, 0);
-			$table->integer('idDepot');
+			$table->integer('iddepot');
 			$table->integer('stockinitial');
 			$table->float('prixvente', 10, 0);
 		});
