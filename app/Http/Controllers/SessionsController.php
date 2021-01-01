@@ -44,12 +44,13 @@ class SessionsController extends Controller
             else{
                 $sessions =  DB::select(" SELECT concat(users.nom ,' ',users.prenom) as fullName ,
                                                            recu.idSession,
-                                                users.nom,users.prenom,session.id ,
+                                              session.id ,
                                                 SUM(recu.montant) as montant ,session.dateOuverture,session.dateFermeture
                                                 FROM session,recu,users
                                                 WHERE session.id = recu.idSession
                                                 AND session.idCaissier = users.id and recu.annulation=0
-                                                GROUP BY recu.idSession");
+                                                GROUP BY recu.idSession,users.nom,users.prenom,
+                                                         session.id,session.dateOuverture,session.dateFermeture");
             }
             return DataTables::of($sessions)->addColumn('action', function($sessions){
                 $button = '<a href="/session/'.$sessions->id.'/edit" class="btn btn-sm btn-success">
