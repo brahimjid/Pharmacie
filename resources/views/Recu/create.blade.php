@@ -111,9 +111,9 @@
                     serverSide: true,
                     ajax: "{{ route('recu.create')}}",
                     columns: [
-                        {data: 'idMedicament', name: 'idMedicament'},
+                        {data: 'idmedicament', name: 'idmedicament'},
                         {data: 'nom', name: 'nom'},
-                        {data: 'prixVente', name: 'prixAchat'},
+                        {data: 'prixvente', name: 'prixachat'},
                         {data: 'quantite', name: 'quantite'},
                         {data: 'pourcentage', name: 'pourcentage'},
                         {data: 'qte', name: 'quantite'},
