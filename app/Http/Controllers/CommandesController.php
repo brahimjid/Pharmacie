@@ -113,7 +113,7 @@ class CommandesController extends Controller
 
             }
         }
-        $fournisseur = Fournisseur::find($commandes->idFournisseur);
+        $fournisseur = Fournisseur::find($commandes->idfournisseur);
         return view('commande.print',compact('values','commandes',"fournisseur"));
     }
 
