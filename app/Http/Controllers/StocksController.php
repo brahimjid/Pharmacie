@@ -155,10 +155,10 @@ class StocksController extends Controller
         if (request()->ajax()){
             $medicaments = DB::select(' SELECT medicaments.nom,stock.prixvente
                                                 ,stock.quantite,
-                                                stock.idMedicament
+                                                stock.idmedicament
                                                 from medicaments,stock
                                                 WHERE
-                                                      medicaments.id = stock.idMedicament AND stock.quantite > 0 AND idDepot = 2');
+                                                      medicaments.id = stock.idmedicament AND stock.quantite > 0 AND iddepot = 2');
 
             return DataTables::of($medicaments)
                 ->addColumn('add', function ()
