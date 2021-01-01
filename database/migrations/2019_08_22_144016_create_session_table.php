@@ -19,8 +19,8 @@ class CreateSessionTable extends Migration {
 			$table->string('etat', 20)->nullable()->default('Ouverte');
 			$table->integer('idCaissier');
 			$table->dateTime('dateFermeture')->nullable();
-			$table->decimal('valeursi');
-			$table->integer('verser');
+			$table->decimal('valeursi')->default(0);
+			$table->integer('verser')->default(0);
 			$table->integer('idPersonnel')->nullable();
 		});
 	}
