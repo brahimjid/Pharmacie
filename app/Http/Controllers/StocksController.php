@@ -43,7 +43,7 @@ class StocksController extends Controller
                                                 stock.idMedicament,stock.prixVente
                                                 from    medicaments,stock
                                                              WHERE
-                                                    medicaments.id = stock.idMedicament And stock.idDepot = ?',[$depot]);
+                                                    medicaments.id = stock.idMedicament And stock.iddepot = ?',[$depot]);
 
         return DataTables::of($medicaments)->addColumn('action', function ($medicaments)
         {
@@ -178,7 +178,7 @@ class StocksController extends Controller
     {
         if (request()->ajax()){
 
-            $invoices = Invoice::where('idtypeFacture','1');
+            $invoices = Invoice::where('idtypefacture','1');
             return DataTables::of($invoices)->addColumn('print', function ($invoices) {
                 $button = '<a href="/invoices/sortir/' . $invoices->id . '" class="btn btn-sm btn-success" target="_blank">
                           <i class="fa fa-print"></i>
