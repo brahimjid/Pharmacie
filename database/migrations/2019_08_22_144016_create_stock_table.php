@@ -18,12 +18,12 @@ class CreateStockTable extends Migration {
 			$table->integer('idmedicament');
 			$table->string('numlot', 100)->nullable();
 			$table->date('date');
-			$table->float('quantite', 10, 0);
+			$table->float('quantite', 10, 0)->default(0);
 			$table->date('dateperemption')->nullable();
-			$table->float('prixachat', 10, 0);
-			$table->float('montantt', 10, 0);
-			$table->integer('iddepot');
-			$table->integer('stockinitial');
+			$table->float('prixachat', 10, 0)->default(0);
+			$table->float('montantt', 10, 0)->default(0);
+			$table->integer('iddepot')->default(0);
+			$table->integer('stockinitial')->default();
 			$table->float('prixvente', 10, 0);
 		});
 	}

@@ -185,10 +185,10 @@ class InvoicesController extends Controller
             $montantT = $request->input('montant');
             $invoice->date = date('Y-m-d');
             $invoice->montant = $montantT;
-            $invoice->idTypeFacture = 1;
-            $invoice->idService = 3;
-            $invoice->idPersonnel = auth()->user()->id;
-            $invoice->numFacture = 'S/00' . date('d') . '/' . date('y');
+            $invoice->idtypeFacture = 1;
+            $invoice->idservice = 3;
+            $invoice->idpersonnel = auth()->user()->id;
+            $invoice->numfacture = 'S/00' . date('d') . '/' . date('y');
             $invoice->save();
             $inserted = '';
             $depot_id = $request->input('depot');
