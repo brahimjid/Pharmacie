@@ -128,18 +128,18 @@ class InvoicesController extends Controller
                         'dateperemption' => $date_per[$i]
 
                     );
-                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixAchat');
+                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixachat');
                     if (Stock::where('idmedicament', '=', $med_id[$i])->exists()) {
 
                         $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
                         DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ?', [$stock_id]);
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ?', [$stock_id]);
                         $getMed = Medicament::find($med_id[$i]);
-                        if ($getMed->prixAchat != $prix[$i]) {
-                            $getMed->prixAchat = $prix[$i];
-                            $getMed->prixVente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100);
+                        if ($getMed->prixachat != $prix[$i]) {
+                            $getMed->prixachat = $prix[$i];
+                            $getMed->prixvente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100);
                             $getMed->save();
-                            DB::update(" update stock set prixAchat = $prix[$i], prixVente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idmedicament = $getMed->id ", [$stock_id]);
+                            DB::update(" update stock set prixachat = $prix[$i], prixvente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idmedicament = $getMed->id ", [$stock_id]);
                             //  DB::update(" update stock set prixVente = (($prix[$i] * $prix[$i] /100)) where id = ?  AND idmedicament = $getMed->id ", [$stock_id]);
 
                         }
@@ -228,8 +228,8 @@ class InvoicesController extends Controller
                             'dateperemption' => $date_per[$i],
                             'date' => date('Y-m-d'),
                             'iddepot' => $depot_id,
-                            'prixVente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
-                            'montantT' => ($prix[$i] * $qte[$i])
+                            'prixvente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
+                            'montantt' => ($prix[$i] * $qte[$i])
 
 
                         );
