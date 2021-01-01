@@ -99,12 +99,12 @@ class InvoicesController extends Controller
             $numFacture = $request->input('numerofacture');
             $invoice->date = $dateF;
             $invoice->montant = $montantT;
-            $invoice->idTypeFacture = 2;
-            $invoice->idService = 3;
-            $invoice->idFournisseur = $fournisseur;
-            $invoice->idPersonnel = auth()->user()->id;
-            $invoice->numeroFactureAchat = $numFacture;
-            $invoice->numFacture = 'E/00' . date('d') . '/' . date('y');
+            $invoice->idtypeFacture = 2;
+            $invoice->idservice = 3;
+            $invoice->idfournisseur = $fournisseur;
+            $invoice->idpersonnel = auth()->user()->id;
+            $invoice->numerofactureachat = $numFacture;
+            $invoice->numfacture = 'E/00' . date('d') . '/' . date('y');
             $invoice->save();
             $inserted = '';
             $fourn_nom = DB::table('fournisseur')->where('id', $fournisseur)->value('nom');;
@@ -120,7 +120,7 @@ class InvoicesController extends Controller
 
                 for ($i = 0; $i < count($med_id); $i++) {
                     $data = array(
-                        'idFactrue' => $invoice->id,
+                        'idfactrue' => $invoice->id,
                         'idmedicament' => $med_id[$i],
                         'prix' => $prix[$i],
                         'quantite' => $qte[$i],
@@ -146,13 +146,13 @@ class InvoicesController extends Controller
                     } else {
                         $stock_data = array(
                             'idmedicament' => $med_id[$i],
-                            'prixAchat' => $prix[$i],
+                            'prixachat' => $prix[$i],
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
                             'date' => $dateF,
                             'iddepot' => 2,
-                            'prixVente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
-                            'montantT' => ($prix[$i] * $qte[$i])
+                            'prixvente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
+                            'montantt' => ($prix[$i] * $qte[$i])
 
 
                         );
@@ -204,13 +204,13 @@ class InvoicesController extends Controller
 
                 for ($i = 0; $i < count($med_id); $i++) {
                     $data = array(
-                        'idFactrue' => $invoice->id,
+                        'idfactrue' => $invoice->id,
                         'idmedicament' => $med_id[$i],
                         'prix' => $prix[$i],
                         'quantite' => $qte[$i],
                         'prixtotal' => $pT[$i]
                     );
-                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixAchat');
+                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixachat');
                     $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
                     if (Stock::where([['idmedicament', '=', $med_id[$i]], ['iddepot', $depot_id]])->exists()) {
 
@@ -223,7 +223,7 @@ class InvoicesController extends Controller
                     else {
                         $stock_data = array(
                             'idmedicament' => $med_id[$i],
-                            'prixAchat' => $prix[$i],
+                            'prixachat' => $prix[$i],
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
                             'date' => date('Y-m-d'),
@@ -267,7 +267,7 @@ class InvoicesController extends Controller
 
 
         $items = DB::select('SELECT facture.montant , facture.date ,medicaments.nom ,elementsfacture.prixtotal,
-                                          elementsfacture.quantite,medicaments.prixAchat
+                                          elementsfacture.quantite,medicaments.prixachat
                                   FROM    facture,elementsfacture,medicaments
                                   WHERE   facture.id =  elementsfacture.idFactrue
                                  AND     elementsfacture.idmedicament = medicaments.id

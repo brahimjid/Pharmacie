@@ -21,7 +21,7 @@ class CreateStockTable extends Migration {
 			$table->float('quantite', 10, 0);
 			$table->date('dateperemption')->nullable();
 			$table->float('prixachat', 10, 0);
-			$table->float('montantT', 10, 0);
+			$table->float('montantt', 10, 0);
 			$table->integer('iddepot');
 			$table->integer('stockinitial');
 			$table->float('prixvente', 10, 0);
