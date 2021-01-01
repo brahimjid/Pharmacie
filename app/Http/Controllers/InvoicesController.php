@@ -36,7 +36,7 @@ class InvoicesController extends Controller
             return redirect()->route('home');
         }
         if (request()->ajax()) {
-            $invoices = Invoice::where('idTypeFacture', '2');
+            $invoices = Invoice::where('idtypeFacture', '2');
             return DataTables::of($invoices)->addColumn('print', function ($invoices) {
                 $button = '<a href="/invoices/' . $invoices->id . '" class="btn btn-sm btn-success" target="_blank">
                           <i class="fa fa-print"></i>
@@ -185,7 +185,7 @@ class InvoicesController extends Controller
             $montantT = $request->input('montant');
             $invoice->date = date('Y-m-d');
             $invoice->montant = $montantT;
-            $invoice->idtypeFacture = 1;
+            $invoice->idtypefacture = 1;
             $invoice->idservice = 3;
             $invoice->idpersonnel = auth()->user()->id;
             $invoice->numfacture = 'S/00' . date('d') . '/' . date('y');
