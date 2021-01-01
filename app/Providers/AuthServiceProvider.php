@@ -26,13 +26,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
 
         $gate->define('isAdmin',function ($user){
-            return $user->idFonction == 1;
+            return $user->idfonction == 1;
         });
         $gate->define('isVendeur',function ($user){
-            return $user->idFonction == 3;
+            return $user->idfonction == 3;
         });
         $gate->define('isGerent',function ($user){
-            return $user->idFonction == 2;
+            return $user->idfonction == 2;
         });
     }
 }
