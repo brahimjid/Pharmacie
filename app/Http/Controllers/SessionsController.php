@@ -43,7 +43,7 @@ class SessionsController extends Controller
 
             else{
                 $sessions =  DB::select(" SELECT concat(users.nom ,' ',users.prenom) as fullName ,
-                                                           recu.idSession
+                                                           recu.idSession,
                                                 users.nom,users.prenom,session.id ,
                                                 SUM(recu.montant) as montant ,session.dateOuverture,session.dateFermeture
                                                 FROM session,recu,users
