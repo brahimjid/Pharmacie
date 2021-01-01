@@ -65,7 +65,7 @@ class CommandesController extends Controller
                 {
                     //'<inp type="date" id="dateprt"'
                     return "<button class='btn btn-primary  btn-sm d-inline add_med_to_stock_btn' >
-                               <i class='fas fa-plus'></i> 
+                               <i class='fas fa-plus'></i>
                              </button>";
                 })->addColumn('qte','<input type="number" class="form-control" min="1" id="quantite_input" oninput="validity.valid||(value=\'\');">')
                 ->rawColumns
@@ -95,17 +95,17 @@ class CommandesController extends Controller
         $commandes = new Commande();
         $commandes->date = date('Y-m-d H:i:s');
         $commandes->montant         = $request->montant;
-        $commandes->idFournisseur   = $request->fournisseurs;
+        $commandes->idfournisseur   = $request->fournisseurs;
         $commandes->typecommande            = 1;
-        $commandes->idDepot         =  auth()->user()->idDepot;
+        $commandes->iddepot         =  auth()->user()->idDepot;
         $commandes->save();
         if ($commandes){
             $values = $request->all();
             for ($i = 0; $i < count($request->med_id); $i++){
                 $commandeItem = new CommandeItem();
                 $commandeItem->prix = $request->prix_achat[$i];
-                $commandeItem->idMedicament = $request->med_id[$i];
-                $commandeItem->idCommande = $commandes->id;
+                $commandeItem->idmedicament = $request->med_id[$i];
+                $commandeItem->idcommande = $commandes->id;
                 $commandeItem->quantite = $request->Qte[$i];
                 $commandeItem->prixtotal = $request->pT[$i];
                 $commandeItem->stockactuel = 2;
@@ -130,8 +130,8 @@ class CommandesController extends Controller
 
     public function toEntree($id){
            $commande = Commande::find($id);
-           $commandeItems = CommandeItem::where('idCommande',$commande->id)->get();
-           $fournisseur = Fournisseur::find($commande->idFournisseur);
+           $commandeItems = CommandeItem::where('idcommande',$commande->id)->get();
+           $fournisseur = Fournisseur::find($commande->idfournisseur);
            return view('commande.transfer',compact('fournisseur','commandeItems','commande'));
 
     }

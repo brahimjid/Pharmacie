@@ -117,7 +117,7 @@
                     columns: [
                         {data: 'id', name: 'id'},
                         {data: 'nom', name: 'nom'},
-                        {data: 'prixAchat', name: 'prixAchat'},
+                        {data: 'prixachat', name: 'prixachat'},
                         {data: 'qte', name: 'qte'},
                         {data: 'add', name: 'add', orderable: false, searchable: false}
                     ],
