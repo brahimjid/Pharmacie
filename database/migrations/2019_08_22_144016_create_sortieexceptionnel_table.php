@@ -15,7 +15,7 @@ class CreateSortieexceptionnelTable extends Migration {
 		Schema::create('sortieexceptionnel', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('idMedicament');
+			$table->integer('idmedicament');
 			$table->date('date');
 			$table->float('quantite', 10, 0);
 			$table->string('typeSortie', 50);

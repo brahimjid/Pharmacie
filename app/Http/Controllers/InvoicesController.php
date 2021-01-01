@@ -121,17 +121,17 @@ class InvoicesController extends Controller
                 for ($i = 0; $i < count($med_id); $i++) {
                     $data = array(
                         'idFactrue' => $invoice->id,
-                        'idMedicament' => $med_id[$i],
+                        'idmedicament' => $med_id[$i],
                         'prix' => $prix[$i],
                         'quantite' => $qte[$i],
                         'prixtotal' => $pT[$i],
                         'dateperemption' => $date_per[$i]
 
                     );
-                    $update_montantT = DB::table('stock')->where('idMedicament', $med_id[$i])->value('prixAchat');
-                    if (Stock::where('idMedicament', '=', $med_id[$i])->exists()) {
+                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixAchat');
+                    if (Stock::where('idmedicament', '=', $med_id[$i])->exists()) {
 
-                        $stock_id = DB::table('stock')->where('idMedicament', $med_id[$i])->value('id');
+                        $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
                         DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ?', [$stock_id]);
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ?', [$stock_id]);
                         $getMed = Medicament::find($med_id[$i]);
@@ -139,13 +139,13 @@ class InvoicesController extends Controller
                             $getMed->prixAchat = $prix[$i];
                             $getMed->prixVente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100);
                             $getMed->save();
-                            DB::update(" update stock set prixAchat = $prix[$i], prixVente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idMedicament = $getMed->id ", [$stock_id]);
-                            //  DB::update(" update stock set prixVente = (($prix[$i] * $prix[$i] /100)) where id = ?  AND idMedicament = $getMed->id ", [$stock_id]);
+                            DB::update(" update stock set prixAchat = $prix[$i], prixVente = ($prix[$i] + $prix[$i] * $getMed->pourcentage / 100) where id = ? AND idmedicament = $getMed->id ", [$stock_id]);
+                            //  DB::update(" update stock set prixVente = (($prix[$i] * $prix[$i] /100)) where id = ?  AND idmedicament = $getMed->id ", [$stock_id]);
 
                         }
                     } else {
                         $stock_data = array(
-                            'idMedicament' => $med_id[$i],
+                            'idmedicament' => $med_id[$i],
                             'prixAchat' => $prix[$i],
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
@@ -205,24 +205,24 @@ class InvoicesController extends Controller
                 for ($i = 0; $i < count($med_id); $i++) {
                     $data = array(
                         'idFactrue' => $invoice->id,
-                        'idMedicament' => $med_id[$i],
+                        'idmedicament' => $med_id[$i],
                         'prix' => $prix[$i],
                         'quantite' => $qte[$i],
                         'prixtotal' => $pT[$i]
                     );
-                    $update_montantT = DB::table('stock')->where('idMedicament', $med_id[$i])->value('prixAchat');
-                    $stock_id = DB::table('stock')->where('idMedicament', $med_id[$i])->value('id');
-                    if (Stock::where([['idMedicament', '=', $med_id[$i]], ['idDepot', $depot_id]])->exists()) {
+                    $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixAchat');
+                    $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
+                    if (Stock::where([['idmedicament', '=', $med_id[$i]], ['idDepot', $depot_id]])->exists()) {
 
                         DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ? And idDepot = ? ', [$stock_id, $depot_id]);
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? And idDepot = ? ', [$stock_id, $depot_id]);
-                        DB::update("update stock set quantite = quantite  -   $qte[$i]  where idMedicament = $med_id[$i] and idDepot = 2 ");
+                        DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and idDepot = 2 ");
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? and idDepot = 2', [$stock_id]);
                     }
 
                     else {
                         $stock_data = array(
-                            'idMedicament' => $med_id[$i],
+                            'idmedicament' => $med_id[$i],
                             'prixAchat' => $prix[$i],
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
@@ -236,7 +236,7 @@ class InvoicesController extends Controller
                         $check_insertion =  Stock::insert($stock_data);
                         if ($check_insertion){
                             InvoiceItem::insert($data);
-                            DB::update("update stock set quantite = quantite  -   $qte[$i]  where idMedicament = $med_id[$i] and idDepot = 2 ");
+                            DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and idDepot = 2 ");
 
 
                         }
@@ -267,10 +267,10 @@ class InvoicesController extends Controller
 
 
         $items = DB::select('SELECT facture.montant , facture.date ,medicaments.nom ,elementsfacture.prixtotal,
-                                          elementsfacture.quantite,medicaments.prixAchat 
-                                  FROM    facture,elementsfacture,medicaments 
+                                          elementsfacture.quantite,medicaments.prixAchat
+                                  FROM    facture,elementsfacture,medicaments
                                   WHERE   facture.id =  elementsfacture.idFactrue
-                                 AND     elementsfacture.idMedicament = medicaments.id
+                                 AND     elementsfacture.idmedicament = medicaments.id
                                 and        facture.id = ?', [$id]);
 
         return view('Facture.printentree', compact('items', 'invoice'));
@@ -284,14 +284,14 @@ class InvoicesController extends Controller
 
 
         $items = DB::select('
-                SELECT facture.montant , facture.date ,medicaments.nom ,medicaments.id, elementsfacture.prixtotal, 
-                       elementsfacture.quantite,stock.prixVente 
-                FROM facture,elementsfacture,medicaments,stock 
-                WHERE facture.id = elementsfacture.idFactrue 
-                  AND  elementsfacture.idMedicament = medicaments.id 
-                  AND stock.idMedicament = medicaments.id 
-                  AND stock.datePeremption is null AND 
-                  facture.id = ? 
+                SELECT facture.montant , facture.date ,medicaments.nom ,medicaments.id, elementsfacture.prixtotal,
+                       elementsfacture.quantite,stock.prixVente
+                FROM facture,elementsfacture,medicaments,stock
+                WHERE facture.id = elementsfacture.idFactrue
+                  AND  elementsfacture.idmedicament = medicaments.id
+                  AND stock.idmedicament = medicaments.id
+                  AND stock.datePeremption is null AND
+                  facture.id = ?
                 group BY medicaments.id',[$id]);
 
         return view('Facture.showSortir', compact('items', 'invoice'));
