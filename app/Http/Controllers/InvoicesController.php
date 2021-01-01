@@ -150,7 +150,7 @@ class InvoicesController extends Controller
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
                             'date' => $dateF,
-                            'idDepot' => 2,
+                            'iddepot' => 2,
                             'prixVente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
                             'montantT' => ($prix[$i] * $qte[$i])
 
@@ -212,12 +212,12 @@ class InvoicesController extends Controller
                     );
                     $update_montantT = DB::table('stock')->where('idmedicament', $med_id[$i])->value('prixAchat');
                     $stock_id = DB::table('stock')->where('idmedicament', $med_id[$i])->value('id');
-                    if (Stock::where([['idmedicament', '=', $med_id[$i]], ['idDepot', $depot_id]])->exists()) {
+                    if (Stock::where([['idmedicament', '=', $med_id[$i]], ['iddepot', $depot_id]])->exists()) {
 
-                        DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ? And idDepot = ? ', [$stock_id, $depot_id]);
-                        DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? And idDepot = ? ', [$stock_id, $depot_id]);
-                        DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and idDepot = 2 ");
-                        DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? and idDepot = 2', [$stock_id]);
+                        DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ? And iddepot = ? ', [$stock_id, $depot_id]);
+                        DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? And iddepot = ? ', [$stock_id, $depot_id]);
+                        DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and iddepot = 2 ");
+                        DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? and iddepot = 2', [$stock_id]);
                     }
 
                     else {
@@ -227,7 +227,7 @@ class InvoicesController extends Controller
                             'quantite' => $qte[$i],
                             'dateperemption' => $date_per[$i],
                             'date' => date('Y-m-d'),
-                            'idDepot' => $depot_id,
+                            'iddepot' => $depot_id,
                             'prixVente' => ($prix[$i] + ($prix[$i] * $med_pour[$i] / 100)),
                             'montantT' => ($prix[$i] * $qte[$i])
 
@@ -236,7 +236,7 @@ class InvoicesController extends Controller
                         $check_insertion =  Stock::insert($stock_data);
                         if ($check_insertion){
                             InvoiceItem::insert($data);
-                            DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and idDepot = 2 ");
+                            DB::update("update stock set quantite = quantite  -   $qte[$i]  where idmedicament = $med_id[$i] and iddepot = 2 ");
 
 
                         }
