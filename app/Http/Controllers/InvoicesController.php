@@ -36,7 +36,7 @@ class InvoicesController extends Controller
             return redirect()->route('home');
         }
         if (request()->ajax()) {
-            $invoices = Invoice::where('idtypeFacture', '2');
+            $invoices = Invoice::where('idtypefacture', '2');
             return DataTables::of($invoices)->addColumn('print', function ($invoices) {
                 $button = '<a href="/invoices/' . $invoices->id . '" class="btn btn-sm btn-success" target="_blank">
                           <i class="fa fa-print"></i>
