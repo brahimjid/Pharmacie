@@ -58,7 +58,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        if (!(auth()->user()->idFonction == 1)){
+        if (!(auth()->user()->idfonction == 1)){
             return redirect()->route('home');
         }
         $fonctions = Fonction::all();
@@ -84,12 +84,12 @@ class UsersController extends Controller
             'tel1' => $request->input('tel1'),
             'tel2' => $request->input('tel2'),
             'etat' => $request->input('etat'),
-            'idFonction' => $request->input('idfonction'),
-            'idGroupe' => $request->input('idgroupe'),
-            'idDepot' => $request->input('iddepot'),
+            'idfonction' => $request->input('idfonction'),
+            'idgroupe' => $request->input('idgroupe'),
+            'iddepot' => $request->input('iddepot'),
             'adresse' => $request->input('address'),
-            'dateNaissance' => $request->input('dateN'),
-            'lieuNaissance' => $request->input('lieuN'),
+            'datenaissance' => $request->input('dateN'),
+            'lieunaissance' => $request->input('lieuN'),
             'password' => Hash::make($request->input('password')),
         ]);
         return redirect('/home');
