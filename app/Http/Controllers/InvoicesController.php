@@ -32,7 +32,7 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-        if ((auth()->user()->idFonction !== 1)) {
+        if ((auth()->user()->idfonction !== 1)) {
             return redirect()->route('home');
         }
         if (request()->ajax()) {
