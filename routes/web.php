@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\CommandesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,6 @@ Route::resource('invoices','InvoicesController');
 Route::resource('recu','RecuController');
 Route::resource('session','SessionsController');
 Route::resource('users','UsersController');
-Route::resource('commandes','commandesController');
+Route::resource('commandes',CommandesController::class);
 
 
