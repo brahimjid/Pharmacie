@@ -66,7 +66,7 @@
                 </table>
                 <input id="montantTotal" name="montant" type="hidden">
                 <div class="d-flex  justify-content-center ">
-                    <button type="submit" class="btn-primary mb-2" id="submit_invoice" name="submit_invoice">Valider
+                    <button type="submit" class="btn btn-primary mb-2" id="submit_invoice" name="submit_invoice">Valider
                         <span class="ml-2 fa fa-check-square submit-stock-btn"></span>
                     </button>
                 </div>
