@@ -21,7 +21,7 @@ class CreateSessionTable extends Migration {
 			$table->dateTime('datefermeture')->nullable();
 			$table->decimal('valeursi')->default(0);
 			$table->integer('verser')->default(0);
-			$table->integer('idPersonnel')->nullable();
+			$table->integer('idpersonnel')->nullable();
 		});
 	}
 
