@@ -156,15 +156,17 @@ class StocksController extends Controller
         if (request()->ajax()){
             $medicaments = DB::select(' SELECT medicaments.nom,stock.prixVente
                                                 ,stock.quantite,
-                                                stock.idMedicament
+                                                stock.idMedicament,
+                                                        stock.datePeremption
                                                 from medicaments,stock
                                                 WHERE
                                                       medicaments.id = stock.idMedicament AND stock.quantite > 0 AND idDepot = 2');
 
             return DataTables::of($medicaments)
-                ->addColumn('add', function ()
+                ->addColumn('add', function ($me)
                 {
-                    return "<button class='btn btn-primary ml-2 btn-sm d-inline add_med_to_stock_btn'><i class='fas fa-plus'></i> </button>";
+
+                    return "<button data-date='$me->datePeremption' class='btn btn-primary ml-2 btn-sm d-inline add_med_to_stock_btn'><i class='fas fa-plus'></i> </button>";
                 })->addColumn('qte','<input type="number" class="form-control" min="1" id="quantite_input" oninput="validity.valid||(value=\'\');">')->rawColumns
                 (['add'=>'add','qt'=>'qte'])
                 ->make(true);

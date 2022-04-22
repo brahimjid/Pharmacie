@@ -110,6 +110,7 @@ class InvoicesController extends Controller
             $fourn_nom = DB::table('fournisseur')->where('id', $fournisseur)->value('nom');;
 
             if ($invoice) {
+
                 $prix = $request->get('prix_achat');
                 $med_id = $request->get('med_id');
                 $qte = $request->get('Qte');
@@ -214,14 +215,13 @@ class InvoicesController extends Controller
                     $update_montantT = DB::table('stock')->where('idMedicament', $med_id[$i])->value('prixAchat');
                     $stock_id = DB::table('stock')->where('idMedicament', $med_id[$i])->value('id');
                     if (Stock::where([['idMedicament', '=', $med_id[$i]], ['idDepot', $depot_id]])->exists()) {
-
-//                        DB::update('update stock set quantite = quantite  + ' . $qte[$i] . ' where id = ? And iddepot = ? ', [$stock_id, $depot_id]);
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? And idDepot = ? ', [$stock_id, $depot_id]);
                         DB::update("update stock set quantite = quantite  -   $qte[$i]  where idMedicament = $med_id[$i] and idDepot = 2 ");
                         DB::update('update stock set montantT = quantite  * ' . $update_montantT . ' where id = ? and idDepot = 2', [$stock_id]);
                     }
 
                     else {
+
                         $stock_data = array(
                             'idMedicament' => $med_id[$i],
                             'prixAchat' => $prix[$i],

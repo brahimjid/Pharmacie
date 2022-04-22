@@ -13,7 +13,6 @@ let factureTable =$('#facture_body');
  // add elements to facture table
 $(".medicamentstable").on("click", ".add_med_to_stock_btn", function(e){
        // get value from table medicament and assign them to variables
-    //console.log();
 
     let med_id = $(this).closest('tr').find('td:eq(0)').text(),
         nom_med = $(this).closest('tr').find('td:eq(1)').text(),
@@ -65,20 +64,20 @@ $(".medicamentstable").on("click", ".add_med_to_stock_btn", function(e){
                    <td>
                       <input type="text" class="form-control" name="nom-med[]" id="nom_meds" value="${nom_med}" >
                     </td>
-                   <td> 
-                   
+                   <td>
+
                      <input type="text" class="form-control" name="prix_achat[]" id="prix_input" value="${prix_achat}" ></td>
-                   <td> 
+                   <td>
                       <input type="number" class="form-control" name="Qte[]" id="qte_input" value="${quantite}"></td>
-                  
+
                    <td> <input type="text" class="form-control" name="pT[]" id="prixT_input" value="${prixTotal}"></td>
                    <td>
                       <input type="hidden"  class="form-control" name="med_id[]" id="med_id" value="${med_id}">
-                 </td>  
+                 </td>
 
                   <td>
                     <input type="hidden"  class="form-control" name="date_per[]" id="date_per" value="${date_peremption}">
-                 </td> 
+                 </td>
                  <td>
                     <input type="hidden"  class="form-control" name="med_pour[]" id="med_pour" value="${med_pourcentage}">
                  </td>
@@ -87,7 +86,7 @@ $(".medicamentstable").on("click", ".add_med_to_stock_btn", function(e){
                      X
                     </button>
                  </td>
-             
+
             </tr>
             `
        );
@@ -124,6 +123,7 @@ $(".medicamentstable").on("click", ".add_med_to_stock_btn", function(e){
                              </td>
                               <td>
                             <input type="hidden"  class="form-control" name="med_pour[]" id="med_pour" value="${med_pourcentage}">
+                            <input type="hidden"  class="form-control" name="date_per[]" id="date_per" value="${$(this).attr('data-date')}">
                             </td>
                              <td>
                             <button class="remove_row btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Remove row">
