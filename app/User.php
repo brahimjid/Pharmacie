@@ -37,8 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function fonction(){
-        return $this->belongsTo('App\Fonction','idfonction');
-
+        return $this->belongsTo('App\Fonction','idFonction');
     }
 
 }

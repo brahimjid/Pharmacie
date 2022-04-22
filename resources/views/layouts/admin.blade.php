@@ -19,6 +19,7 @@
 <body id="page-top">
 <div class="spinner"></div>
 <div id="wrapper">
+{{--      @dd(auth()->user()->fonction->id);--}}
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

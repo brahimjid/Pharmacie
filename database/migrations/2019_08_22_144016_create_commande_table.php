@@ -17,7 +17,7 @@ class CreateCommandeTable extends Migration {
 			$table->integer('id', true);
 			$table->dateTime('date');
 			$table->float('montant', 10, 0);
-			$table->integer('idfournisseur')->nullable();
+			$table->integer('idFournisseur')->nullable();
 			$table->integer('typecommande');
 			$table->integer('iddepot')->nullable();
 		});

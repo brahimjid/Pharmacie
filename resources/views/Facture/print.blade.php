@@ -38,7 +38,6 @@
         </tr>
         </thead>
         <tbody class="text-center text-dark">
-
         @for  ( $i = 0; $i < count($values['Qte']); $i++)
             <tr>
                 <td>{{ $values['nom-med'][$i]}}</td>

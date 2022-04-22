@@ -23,7 +23,7 @@ class MedicamentsController extends Controller
 
     public function index()
     {
-        if ((auth()->user()->idfonction !== 2) && (auth()->user()->idfonction !== 1)){
+        if ((auth()->user()->idFonction !== 2) && (auth()->user()->idFonction !== 1)){
             return redirect()->route('home');
         }
         if (request()->ajax()){
@@ -81,8 +81,8 @@ class MedicamentsController extends Controller
         ]);
       $medicaments = new Medicament();
         $medicaments->nom = $request->input('nom');
-        $medicaments->prixachat = $request->input('prixAchat');
-        $medicaments->prixvente = $request->input('prixVente');
+        $medicaments->prixAchat = $request->input('prixAchat');
+        $medicaments->prixVente = $request->input('prixVente');
         $medicaments->idfamille = $request->input('familles');
         $medicaments->etat = $request->input('etat');
         $medicaments->pourcentage = $request->input('pourcentage');
@@ -142,8 +142,8 @@ class MedicamentsController extends Controller
         ]);
         $medicaments = Medicament::find($id);
         $medicaments->nom=$request->input('nom');
-        $medicaments->prixachat=$request->input('prixAchat');
-        $medicaments->prixvente= $request->input('prixVente');
+        $medicaments->prixAchat=$request->input('prixAchat');
+        $medicaments->prixVente= $request->input('prixVente');
         $medicaments->idfamille= $request->input('familles');
         $medicaments->etat= $request->input('etat');
         $medicaments->pourcentage = $request->input('pourcentage');

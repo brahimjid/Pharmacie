@@ -23,7 +23,7 @@ class CreateEvacuationTable extends Migration {
 			$table->integer('idcaissier');
 			$table->integer('idchauffeur');
 			$table->integer('idinfermier');
-			$table->integer('idsession');
+			$table->integer('idSession');
 			$table->integer('nature');
 			$table->string('matricule', 50)->nullable();
 		});

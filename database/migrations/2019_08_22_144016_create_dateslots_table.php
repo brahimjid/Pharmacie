@@ -15,7 +15,7 @@ class CreateDateslotsTable extends Migration {
 		Schema::create('dateslots', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->date('dateperemption')->nullable();
+			$table->date('datePeremption')->nullable();
 			$table->string('numlot', 100)->nullable();
 			$table->integer('quantite');
 			$table->integer('idelements');

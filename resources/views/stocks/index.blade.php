@@ -76,10 +76,10 @@
                    columns: [
                        {data: 'id', name: 'id'},
                        {data: 'nom', name: 'nom'},
-                       {data: 'prixachat', name: 'prixAchat'},
-                       {data: 'prixvente', name: 'prixVente'},
+                       {data: 'prixAchat', name: 'prixAchat'},
+                       {data: 'prixVente', name: 'prixVente'},
                        {data: 'quantite', name: 'quantite'},
-                       {data: 'dateperemption', name: 'datePeremption'},
+                       {data: 'datePeremption', name: 'datePeremption'},
                        {data: 'action', name: 'action', orderable: false, searchable: false}
                    ],
                    "aoColumnDefs": [ { "sClass": "dpass", "aTargets": [0] } ],

@@ -64,8 +64,8 @@
                         columns: [
                             {data: 'id', name: 'id'},
                             {data: 'nom', name: 'nom'},
-                            {data: 'prixachat', name: 'prixachat'},
-                            {data: 'prixvente', name: 'prixvente'},
+                            {data: 'prixAchat', name: 'prixAchat'},
+                            {data: 'prixVente', name: 'prixVente'},
                             {data: 'famille.nom', name: 'famille'},
                             {data: 'etat', name: 'etat'},
                             {data: 'pourcentage', name: 'pourcentage'},

@@ -15,7 +15,7 @@
             @enderror
             <label for="prixAchat">prix Achat :</label>
             <input type="number" class="form-control mb-2 @error('prixAchat') is-invalid @enderror"
-                   name="prixAchat" id="prixAchat" value="{{$medicament->prixachat}}">
+                   name="prixAchat" id="prixAchat" value="{{$medicament->prixAchat}}">
             @error('prixAchat')
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -23,7 +23,7 @@
             @enderror
             <label for="prixVente">prix Vente :</label>
             <input type="number" class="form-control mb-2 @error('prixVente') is-invalid @enderror"
-                   name="prixVente" id="prixVente" value="{{$medicament->prixvente}}">
+                   name="prixVente" id="prixVente" value="{{$medicament->prixVente}}">
             @error('prixVente')
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

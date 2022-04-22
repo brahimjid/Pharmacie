@@ -20,11 +20,11 @@ class CreateFactureTable extends Migration {
 			$table->integer('idtypefacture')->nullable();
 			$table->integer('idservice')->nullable();
 			$table->integer('idpatient')->nullable();
-			$table->integer('idfournisseur')->nullable();
+			$table->integer('idFournisseur')->nullable();
 			$table->integer('idpersonnel');
 			$table->date('dateecheancce')->nullable();
 			$table->boolean('etatpaiement')->nullable();
-			$table->string('numerofactureachat', 50)->nullable();
+			$table->string('numeroFactureAchat', 50)->nullable();
 			$table->date('datepaiement')->nullable();
 			$table->string('numrecu', 50)->nullable();
 			$table->string('lieustock', 100)->nullable();

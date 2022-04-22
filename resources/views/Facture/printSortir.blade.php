@@ -36,7 +36,6 @@
         </tr>
         </thead>
         <tbody class="text-center text-dark">
-        {{--                        {{dd($meds)}}--}}
 
         @for  ( $i = 0; $i < count($values['Qte']); $i++)
             <tr>

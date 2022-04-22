@@ -65,7 +65,7 @@
                       {data: 'id', name: 'id'},
                       {data: 'date', name: 'date'},
                       {data: 'montant', name: 'montant'},
-                      {data: 'numerofactureachat', name: 'numerofactureachat'},
+                      {data: 'numeroFactureAchat', name: 'numeroFactureAchat'},
                       {data: 'print', name: 'print', orderable: false, searchable: false},
                       {data: 'delete', name: 'delete', orderable: false, searchable: false}
                   ],

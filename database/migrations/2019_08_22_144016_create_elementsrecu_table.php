@@ -16,7 +16,7 @@ class CreateElementsrecuTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->dateTime('date');
-			$table->integer('idmedicament');
+			$table->integer('idMedicament');
 			$table->integer('idrecu');
 			$table->float('prix', 10, 0);
 			$table->integer('quantite');

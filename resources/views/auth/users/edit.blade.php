@@ -115,7 +115,7 @@
                                 {{-- idFonction  --}}
                                 <div class="form-group text-center">
 
-                                    <select class="fonction custom-select" name="idfonction" id="idfonction" required>
+                                    <select class="fonction custom-select" name="idFonction" id="idFonction" required>
                                         <option selected value="{{ $user->idFonction }}"> {{ $user->idFonction }}</option>
 
                                         @foreach( $fonctions as $fonction)

@@ -16,7 +16,7 @@ class CreateElementscommandeTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->float('prix', 10, 0);
-			$table->integer('idmedicament');
+			$table->integer('idMedicament');
 			$table->integer('idcommande')->nullable();
 			$table->integer('quantite');
 			$table->float('prixtotal', 10, 0);

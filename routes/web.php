@@ -38,6 +38,7 @@ Route::get('/recu/annuler/{id}', 'RecuController@annuler')->name('annuler');
 // COMMANDE TO STOCK ENTREE
 Route::get('/commandes/transfer/{id}', 'commandesController@toEntree')->name('toEntree');
 Route::get('/recu/close', 'SessionsController@closeSession')->name('close-session');
+
 //cree stock sortir
 Route::get('/stock/sortir', 'StocksController@StockSortir')->name('sortir');
 Auth::routes(['register' => false]);

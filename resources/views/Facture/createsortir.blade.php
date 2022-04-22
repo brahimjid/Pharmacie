@@ -111,9 +111,9 @@
                    serverSide: true,
                    ajax: "{{ route('sortir')}}",
                    columns: [
-                       {data: 'idmedicament', name: 'idmedicament',searchable: false},
+                       {data: 'idMedicament', name: 'idMedicament',searchable: false},
                        {data: 'nom', name: 'nom'},
-                       {data: 'prixvente', name: 'prixachat',searchable: false},
+                       {data: 'prixVente', name: 'prixAchat',searchable: false},
                        {data: 'quantite', name: 'quantite',searchable: false},
                        {data: 'qte', name: 'quantite',searchable: false},
                        {data: 'add', name: 'add', orderable: false, searchable: false}

@@ -8,7 +8,6 @@
 
         <div class="w-50 text-center m-auto entree_page">
             <label for="fournisseurs" class="mt-2">  <h4>Fournisseur </h4> </label>
-
             <select class="fournisseurs" name="fournisseurs" id="fournisseurs" required>
                     <option selected value="{{ $fournisseur->id}}">
                         {{ $fournisseur->nom}}
@@ -52,6 +51,8 @@
                     <tr id="${med_id}" class="input_center_text">
                         <td>
                            {{ \Illuminate\Support\Facades\DB::table('medicaments')->where('id',$commandeItem->idMedicament)->value('nom') }}
+                            <input type="hidden" class="form-control" name="nom-med[]" id="prix_input"
+                                   value="{{ \Illuminate\Support\Facades\DB::table('medicaments')->where('id',$commandeItem->idMedicament)->value('nom') }}" >
                         </td>
                         <td>
                             <input type="text" class="form-control" name="prix_achat[]" id="prix_input"
@@ -101,7 +102,7 @@
                 </table>
                 <input id="montantTotal" name="montant" type="hidden">
                 <div class="d-flex  justify-content-center ">
-                    <button type="submit" class="btn-primary mb-2" id="submit_invoice" name="submit_invoice">Valider
+                    <button type="submit" class="btn btn-primary mb-2" id="submit_invoice" name="submit_invoice">Valider
                         <span class="ml-2 fa fa-check-square submit-stock-btn"></span>
                     </button>
                 </div>

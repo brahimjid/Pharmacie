@@ -32,7 +32,7 @@ class StocksController extends Controller
 
     {
 
-        if ((auth()->user()->idfonction !== 2) && (auth()->user()->idfonction !== 1)){
+        if ((auth()->user()->idFonction !== 2) && (auth()->user()->idFonction !== 1)){
             return redirect()->route('home');
         }
         if (request()->ajax()){
@@ -43,7 +43,7 @@ class StocksController extends Controller
                                                 stock.idMedicament,stock.prixVente
                                                 from    medicaments,stock
                                                              WHERE
-                                                    medicaments.id = stock.idMedicament And stock.iddepot = ?',[$depot]);
+                                                    medicaments.id = stock.idMedicament And stock.idDepot = ?',[$depot]);
 
         return DataTables::of($medicaments)->addColumn('action', function ($medicaments)
         {
@@ -52,6 +52,7 @@ class StocksController extends Controller
         })->make(true);
 
         }
+
         $depots = Depot::all();
  return view('stocks.index',compact('depots'));
  }
@@ -129,8 +130,8 @@ class StocksController extends Controller
     public function update(Request $request, $id)
     {
           $stock = Stock::find($id);
-          $stock->prixachat = $request->input('prixAchat');
-          $stock->prixvente = $request->input('prixVente');
+          $stock->prixAchat = $request->input('prixAchat');
+          $stock->prixVente = $request->input('prixVente');
           $stock->save();
         return redirect('/stocks')->with('success','record updated');
 
@@ -153,12 +154,12 @@ class StocksController extends Controller
     public function StockSortir(){
 
         if (request()->ajax()){
-            $medicaments = DB::select(' SELECT medicaments.nom,stock.prixvente
+            $medicaments = DB::select(' SELECT medicaments.nom,stock.prixVente
                                                 ,stock.quantite,
-                                                stock.idmedicament
+                                                stock.idMedicament
                                                 from medicaments,stock
                                                 WHERE
-                                                      medicaments.id = stock.idmedicament AND stock.quantite > 0 AND iddepot = 2');
+                                                      medicaments.id = stock.idMedicament AND stock.quantite > 0 AND idDepot = 2');
 
             return DataTables::of($medicaments)
                 ->addColumn('add', function ()

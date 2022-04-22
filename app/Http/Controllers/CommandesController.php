@@ -95,16 +95,16 @@ class CommandesController extends Controller
         $commandes = new Commande();
         $commandes->date = date('Y-m-d H:i:s');
         $commandes->montant         = $request->montant;
-        $commandes->idfournisseur   = $request->fournisseurs;
+        $commandes->idFournisseur   = $request->fournisseurs;
         $commandes->typecommande            = 1;
-        $commandes->iddepot         =  auth()->user()->iddepot;
+        $commandes->idDepot         =  auth()->user()->idDepot;
         $commandes->save();
         if ($commandes){
             $values = $request->all();
             for ($i = 0; $i < count($request->med_id); $i++){
                 $commandeItem = new CommandeItem();
                 $commandeItem->prix = $request->prix_achat[$i];
-                $commandeItem->idmedicament = $request->med_id[$i];
+                $commandeItem->idMedicament = $request->med_id[$i];
                 $commandeItem->idcommande = $commandes->id;
                 $commandeItem->quantite = $request->Qte[$i];
                 $commandeItem->prixtotal = $request->pT[$i];
@@ -113,7 +113,7 @@ class CommandesController extends Controller
 
             }
         }
-        $fournisseur = Fournisseur::find($commandes->idfournisseur);
+        $fournisseur = Fournisseur::find($commandes->idFournisseur);
         return view('commande.print',compact('values','commandes',"fournisseur"));
     }
 
@@ -130,8 +130,9 @@ class CommandesController extends Controller
 
     public function toEntree($id){
            $commande = Commande::find($id);
+
            $commandeItems = CommandeItem::where('idcommande',$commande->id)->get();
-           $fournisseur = Fournisseur::find($commande->idfournisseur);
+           $fournisseur = Fournisseur::find($commande->idFournisseur);
            return view('commande.transfer',compact('fournisseur','commandeItems','commande'));
 
     }
@@ -162,11 +163,11 @@ class CommandesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+
      */
     public function destroy($id)
     {
-        dd('delete');
+        Commande::find($id)->delete();
+        return redirect()->back();
     }
 }

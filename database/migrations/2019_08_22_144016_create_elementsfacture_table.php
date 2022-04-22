@@ -17,11 +17,11 @@ class CreateElementsfactureTable extends Migration {
 			$table->integer('id', true);
 			$table->decimal('prix');
 			$table->decimal('remise')->default(0);
-			$table->integer('idmedicament');
+			$table->integer('idMedicament');
 			$table->integer('idfactrue')->nullable();
 			$table->integer('quantite');
 			$table->float('prixtotal', 10, 0);
-			$table->date('dateperemption')->nullable();
+			$table->date('datePeremption')->nullable();
 			$table->string('numlot')->nullable();
 		});
 	}

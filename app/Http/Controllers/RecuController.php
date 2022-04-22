@@ -29,7 +29,7 @@ class RecuController extends Controller
      */
     public function index()
     {
-        if ((auth()->user()->idfonction !== 3) && (auth()->user()->idfonction !== 1)){
+        if ((auth()->user()->idFonction !== 3) && (auth()->user()->idFonction !== 1)){
             return redirect()->route('home');
         }
         if (request()->ajax()){
@@ -101,7 +101,7 @@ class RecuController extends Controller
         $session_id = DB::table('session')->latest('id')->where('etat','ouvert')->value('id');
      // dd($session_id);
       $session_montant = DB::table('recu')
-          ->where([['idsession',$session_id],['annulation',0]] )
+          ->where([['idSession',$session_id],['annulation',0]] )
           ->sum('montant');
         return view('Recu.create',compact('session_montant','session_id'));
     }
@@ -122,7 +122,7 @@ class RecuController extends Controller
        $recu = new Recu();
         $recu->montant = $request->input('montant');
         $recu->date = date('Y-m-d H:i:s');
-        $recu->idsession = $idSession;
+        $recu->idSession = $idSession;
         $recu->annulation = 0;
         $recu->nomprenompatient = $request->input('nom_patient');
         $recu->idmodepaiement  = 1;
@@ -140,14 +140,14 @@ class RecuController extends Controller
           for ($i = 0; $i < count($med_id); $i++){
               $elementRecu = array(
                   'date' => date('Y-m-d'),
-                  'idmedicament' => $med_id[$i],
+                  'idMedicament' => $med_id[$i],
                   'idrecu' =>  $recu->id,
                   'prix' => $prix[$i],
                   'quantite' => $qte[$i],
                   'prixtotal' => $pT[$i],
                   'pourcentage' => $med_pour[$i]
                    );
-              DB::update('update stock set quantite = quantite  - ' . $qte[$i] . ' where idmedicament = ? And iddepot = ?', [$med_id[$i],Auth()->user()->iddepot]);
+              DB::update('update stock set quantite = quantite  - ' . $qte[$i] . ' where idMedicament = ? And idDepot = ?', [$med_id[$i],Auth()->user()->idDepot]);
                $success = RecuItem::insert($elementRecu);
             }
 
@@ -225,7 +225,7 @@ class RecuController extends Controller
 
              for ($i = 0; $i < count($med_info); $i++) {
                  $update_stock = DB::update('update stock set quantite = quantite + ' . $med_info[$i] ->quantite.
-                     ' where  idMedicament = ' . $med_info[$i] ->idmedicament . ' And iddepot = ' . auth()->user()->iddepot);
+                     ' where  idMedicament = ' . $med_info[$i] ->idMedicament . ' And idDepot = ' . auth()->user()->idDepot);
              }
              //dd($med_info);
              $recu = Recu::find($id);

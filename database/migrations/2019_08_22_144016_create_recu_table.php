@@ -17,7 +17,7 @@ class CreateRecuTable extends Migration {
 			$table->integer('id', true);
 			$table->float('montant', 10, 0);
 			$table->dateTime('date');
-			$table->integer('idsession');
+			$table->integer('idSession');
 			$table->dateTime('dateannullation')->nullable();
 			$table->integer('annulation')->nullable();
 			$table->string('nomprenompatient', 100)->nullable();
@@ -29,7 +29,7 @@ class CreateRecuTable extends Migration {
 			$table->integer('etatpaye');
 			$table->integer('idcaissierrecu')->nullable();
 			$table->dateTime('datepaiement')->nullable();
-			$table->integer('idsessionRecu')->nullable();
+			$table->integer('idSessionRecu')->nullable();
 			$table->integer('iddepot')->nullable();
 		});
 	}

@@ -124,7 +124,7 @@
                                 <div class="row">
                                 <div class="form-group text-center col-sm-6">
 
-                                    <select class="fonction custom-select" name="idfonction" id="idfonction" required>
+                                    <select class="fonction custom-select" name="idFonction" id="idFonction" required>
                                         <option disabled selected> Select Fonction</option>
 
                                         @foreach( $fonctions as $fonction)
