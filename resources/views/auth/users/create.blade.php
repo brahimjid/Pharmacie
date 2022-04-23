@@ -151,18 +151,7 @@
                                 </div>
                                 {{-- idgroupe  --}}
                                 <div class="row">
-                                <div class="form-group text-center w-50 col-sm-6">
 
-                                    <select class="groupe custom-select" name="idgroupe" id="idgroupe" required>
-                                        <option disabled selected> Select Group</option>
-
-                                        @foreach( $groupes as $groupe)
-                                            <option value="{{ $groupe->id}}">{{ $groupe->nom}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
 
                                 </div>
                                 <div class="row">

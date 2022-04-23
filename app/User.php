@@ -39,5 +39,8 @@ class User extends Authenticatable
     public function fonction(){
         return $this->belongsTo('App\Fonction','idFonction');
     }
+    public function depot(){
+        return $this->belongsTo(Depot::class,'idDepot');
+    }
 
 }

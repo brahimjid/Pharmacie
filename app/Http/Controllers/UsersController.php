@@ -75,6 +75,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
 
+
         User::create([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
@@ -85,7 +86,7 @@ class UsersController extends Controller
             'etat' => $request->input('etat'),
             'idFonction' => $request->input('idFonction'),
             'idgroupe' => $request->input('idgroupe'),
-            'iddepot' => $request->input('iddepot'),
+            'idDepot' => $request->input('iddepot'),
             'adresse' => $request->input('address'),
             'datenaissance' => $request->input('dateN'),
             'lieunaissance' => $request->input('lieuN'),
@@ -116,8 +117,8 @@ class UsersController extends Controller
         $user = User::find($id);
         $fonctions = Fonction::all();
         $depots = Depot::all();
-        $groupes = Groupe::all();
-        return view('auth.users.edit',compact('user','fonctions','depots','groupes'));
+
+        return view('auth.users.edit',compact('user','fonctions','depots'));
     }
 
     /**
@@ -129,7 +130,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //  dd($request->all());
+        $user = User::find($id);
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+        $user->tel1 = $request->input('tel1');
+        $user->tel2 = $request->input('tel2');
+        $user->idFonction = $request->input('idFonction');
+        $user->idDepot = $request->input('iddepot');
+        $user->adresse = $request->input('address');
+        $user->datenaissance = $request->input('dateN');
+        $user->lieunaissance = $request->input('lieuN');
+        $user->save();
+
+        return redirect('/users');
     }
 
     /**
